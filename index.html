@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy & Terms – Node</title>
+    <!-- Favicon / Web Icons -->
+    <link rel="icon" type="image/png" href="assets/nodeicon.png">
+    <link rel="apple-touch-icon" href="assets/nodeicon.png">
+    <link rel="shortcut icon" href="assets/nodeicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Marked.js for Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Config (ignored by git) -->
+    <script src="supabase_config.js"></script>
+    <!-- Anti-flicker Theme Script -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="brand-section">
+                <div class="brand">
+                    <img src="assets/nodeicon.png" alt="Node Logo" class="logo">
+                    <span class="brand-name">Node</span>
+                </div>
+                <div class="header-title">Privacy & Terms</div>
+            </div>
+            <button class="theme-switch" id="theme-toggle" title="Toggle theme">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <nav class="sub-nav">
+        <div class="nav-container" id="nav-container">
+            <!-- Dynamic tabs from app.js -->
+            <div class="loading-tabs">Loading menu...</div>
+        </div>
+    </nav>
+
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <!-- Sidebar links will be dynamically populated or hardcoded per view -->
+            <ul class="sidebar-list" id="sidebar-list">
+                <!-- Anchor links will go here -->
+            </ul>
+        </aside>
+
+        <main class="content-area" id="main-content">
+            <article id="content-article">
+                <!-- Dynamic content from app.js -->
+                <div class="loading">Loading content...</div>
+            </article>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="https://google.com">Google</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+            </div>
+            <div class="footer-selector">
+                <select name="language" id="lang-selector">
+                    <option value="en" selected>English (United States)</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
