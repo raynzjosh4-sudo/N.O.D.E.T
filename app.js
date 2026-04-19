@@ -1,6 +1,9 @@
-// Initialize Supabase
-const { createClient } = supabase;
-const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Initialize Supabase safely
+let supabaseClient = null;
+if (typeof SUPABASE_URL !== 'undefined' && typeof SUPABASE_ANON_KEY !== 'undefined') {
+    const { createClient } = supabase;
+    supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
 
 // State
 let legalDocuments = [];
@@ -14,6 +17,7 @@ marked.setOptions({
 });
 
 async function fetchLegalDocs() {
+    if (!supabaseClient) return false;
     try {
         const { data, error } = await supabaseClient
             .from('legal_terms')
